@@ -7,7 +7,6 @@ import tms.lesson36.util.Reader;
 import tms.lesson36.util.Writer;
 
 import java.util.Arrays;
-import java.util.EmptyStackException;
 import java.util.List;
 
 @Service
@@ -69,12 +68,6 @@ public class RunService {
                     break;
                 case ("3"):
                     playCalc();
-                    break;
-                case ("4"):
-                    writ.write("Reg");
-                    break;
-                case ("5"):
-                    writ.write("Auth");
                     break;
                 default:
                     writ.write("Bro, this is bullshit" + choice);

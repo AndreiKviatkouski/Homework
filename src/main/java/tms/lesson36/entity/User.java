@@ -10,5 +10,14 @@ import lombok.NoArgsConstructor;
         private String name;
         private String login;
         private String password;
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "name='" + name + '\'' +
+                    ", login='" + login + '\'' +
+                    ", password='" + password + '\'' +
+                    '}';
+        }
     }
 
