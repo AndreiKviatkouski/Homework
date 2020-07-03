@@ -3,16 +3,16 @@ package tms.lesson36.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tms.lesson36.entity.Operation;
-import tms.lesson36.util.Writer;
+
 
 import java.util.List;
 
 @Service
 public class CalcService {
+
     @Autowired
     private List<Operation> operationsList;
-    @Autowired
-    Writer write;
+
 
 
     public double calculator(double num1, double num2, String operation) {

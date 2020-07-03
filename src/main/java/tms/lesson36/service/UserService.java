@@ -30,17 +30,24 @@ public class UserService {
     public void reg(String name, String login, String password) {
         User user = new User(name, login, password);
         userList.add(user);
-        writ.write("User added");
+        if (name.isEmpty() && login.isEmpty() && password.isEmpty()) {
+            writ.write("Not all required fields are filled");
+        }
         returnMenu();
     }
 
 
     public void auth(String login, String password) {
+        if (userList.isEmpty()) {
+            writ.write("User exist");
+            returnMenu();
+        }
         for (User user : userList) {
             if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
+                writ.write("Authorization successful");
                 runService.menu();
             } else {
-
+                writ.write("User exist");
                 returnMenu();
             }
         }
@@ -55,17 +62,18 @@ public class UserService {
         } else {
             switch (choice1) {
                 case ("1"):
-                    reg(writ.write("Entered name") + read.readString(),  writ.write("Entered login") + read.readString(), writ.write("Entered password") + read.readString());
+                    reg(writ.write("Entered name") + read.readString(), writ.write("Entered login") + read.readString(), writ.write("Entered password") + read.readString());
                     break;
                 case ("2"):
-                    auth(writ.write("Entered login") +read.readString(),writ.write("Entered password") + read.readString());
+                    auth(writ.write("Entered login") + read.readString(), writ.write("Entered password") + read.readString());
                     break;
                 case ("3"):
                     exit();
                     break;
                 default:
-                    writ.write("Bro, this is bullshit" + choice1);
+                    writ.write("Bro, this is bullshit        " + choice1);
                     returnMenu();
+                    break;
             }
         }
     }

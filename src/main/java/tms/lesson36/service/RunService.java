@@ -70,8 +70,9 @@ public class RunService {
                     playCalc();
                     break;
                 default:
-                    writ.write("Bro, this is bullshit" + choice);
+                    writ.write("Bro, this is bullshit     " + choice);
                     returnMenu();
+                    break;
             }
         }
     }
