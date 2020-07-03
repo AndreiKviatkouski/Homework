@@ -21,18 +21,6 @@ public class Reader {
             return null;
         }
         return line;
-
-
-    }
-
-    public String readOperation() {
-        String operation = readString();
-        List<String> stringList = Arrays.asList("1", "2", "3", "4", "5");
-        if (!stringList.contains(operation) || operation.isEmpty()) {
-            write.write("Incorrect operation,try again!");
-            return null;
-        }
-        return operation;
     }
 
 

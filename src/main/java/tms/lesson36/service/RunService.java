@@ -7,6 +7,7 @@ import tms.lesson36.util.Reader;
 import tms.lesson36.util.Writer;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 import java.util.List;
 
 @Service
@@ -53,35 +54,36 @@ public class RunService {
         playCalc();
     }
 
-    public void returnString() {
-        read.readString();
-    }
-
     public void menu() {
         writ.write("Choice operation: 1 - Show history; 2 - exit; 3 - Play Calculator:          ");
         String choice = read.readString();
-        switch (choice) {
-            case ("1"):
-                showHistory();
-                break;
-            case ("2"):
-                exit();
-                break;
-            case ("3"):
-                playCalc();
-                break;
-            case ("4"):
-                writ.write("Reg");
-                break;
-            case ("5"):
-                writ.write("Auth");
-                break;
-            default:
-                writ.write("Bro, this is bullshit" + choice);
-                returnMenu();
+        if (choice == null) {
+            returnMenu();
+        } else {
+            switch (choice) {
+                case ("1"):
+                    showHistory();
+                    break;
+                case ("2"):
+                    exit();
+                    break;
+                case ("3"):
+                    playCalc();
+                    break;
+                case ("4"):
+                    writ.write("Reg");
+                    break;
+                case ("5"):
+                    writ.write("Auth");
+                    break;
+                default:
+                    writ.write("Bro, this is bullshit" + choice);
+                    returnMenu();
+            }
         }
     }
 }
+
 
 
 
